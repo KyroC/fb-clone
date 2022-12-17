@@ -1,10 +1,10 @@
-#Facebook Clone for The Odin Project
+# Facebook Clone for The Odin Project
 
-##Technology
+## Technology
 - MongoDB
 - Express
 - React
 - NodeJS
 
-##Tested
+## Tested
 - HTTP Post "Conmment, Post, User"
