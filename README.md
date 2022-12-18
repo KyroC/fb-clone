@@ -7,12 +7,4 @@
 - NodeJS
 
 ## Tested
-- HTTP Post "Conmment, Post, User"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 38a90fc (login + sign-up page setup)
-=======
-
->>>>>>> main
+- HTTP Post "Comment, Post, User"
