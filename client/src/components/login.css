@@ -24,6 +24,7 @@ body {
 .log-in-container {
     height: 456px;
     width: 396px;
+    margin-top:40px;
 }
 .top-logo {
     padding: 112px 0 16px;
@@ -40,5 +41,80 @@ body {
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
     padding: 0 0 20px;
 }
-.form-template {
+.log-in-form {
+    background-color: #fff;
+    padding-bottom: 24px;
+    padding-top: 10px;
+    text-align:center;
+    border-radius: 6px;
+    
+}
+.inputs {
+    display: block;
+}
+input[type="text"] {
+    background: #FFFFFF;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 22px;
+    line-height: 16px;
+    padding: 0 8px;
+    vertical-align: middle;
+    width: 330px;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+form {
+    display: block;
+}
+.log-in-button-container {
+    padding-top: 6px;
+    font-size: 12px;
+    display:block;
+}
+.log-in-button {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 332px;
+    color: white;
+    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.log-in-button:hover {
+    background-color: #166fe5;
+}
+.sign-up-container {
+    padding-top: 6px;
+}
+.sign-up-button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    line-height: 48px;
+    padding: 0 16px;
+    background-color: #42b72a;
+    color: #FFF;
+    font-weight: bold;
+}
+.sign-up-button:hover {
+    background-color: #36a420;
 }

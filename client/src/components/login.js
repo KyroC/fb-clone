@@ -1,6 +1,7 @@
 import * as React from 'react';
 import "./login.css";
 import Logo from "../fb-logo.svg";
+import {Link } from "react-router-dom";
 
 function Login() {
     return (
@@ -14,13 +15,15 @@ function Login() {
                     <div className="log-in-container">
                         <div className="log-in-form">
                             <form className="form-template">
-                                <div>
-                                    <input type="text" name="username" value="" autocomplete="" />
-                                    <input type="text" name="password" value="" autocomplete="" />
+                                <div className="inputs">
+                                    <input type="text" name="username" value="" autocomplete="" placeholder="Email Address" /> <br />
+                                    <input type="text" name="password" value="" autocomplete="" placeholder="Password" />
                                 </div>
-                                <div><button value="1" type="submit"></button> </div>
-                                <div>-------</div>
-                                <div><button>Create new Account</button></div>
+                                <div className="log-in-button-container"><button value="1" className="log-in-button" type="submit"> Log In </button> </div>
+                                <div>----------------------------------------------</div>
+                                <div className="sign-up-container">
+                                    <Link to="/sign-up-page"><button className="sign-up-button">Create New Account</button></Link >
+                                    </div>
                                 </form>
                         </div>
                         <div className="page-div"></div>
