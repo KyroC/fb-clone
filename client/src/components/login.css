@@ -1,3 +1,44 @@
 body {
     background-color: #f0f2f5;
 }
+.interface {
+    height: 536px;
+    width:100%;
+    padding-top: 72px;
+    padding-bottom: 112px;
+    min-width: 500px;
+}
+.inner-interface {
+    display:flex;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+    width: 980px;
+
+}
+.left-text {
+    margin-right:0;
+    padding-right:32px;
+    width:500px;
+}
+.log-in-container {
+    height: 456px;
+    width: 396px;
+}
+.top-logo {
+    padding: 112px 0 16px;
+}
+.top-logo img { 
+    height: 106px;
+    margin: -28px;
+}
+.motto-text {
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 32px;
+    width:500px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    padding: 0 0 20px;
+}
+.form-template {
+}
