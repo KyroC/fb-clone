@@ -6,7 +6,7 @@ exports.user_create_get = (req, res) => {
 
 exports.user_create_post = (req, res) => {
     const user = new User({
-        username: req.body.username,
+        email: req.body.email,
         password: req.body.password,
         first_name: req.body.first_name,
         last_name:  req.body.last_name ,

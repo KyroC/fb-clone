@@ -22,11 +22,11 @@ function Login() {
                                 <div className="log-in-button-container"><button value="1" className="log-in-button" type="submit"> Log In </button> </div>
                                 <div>----------------------------------------------</div>
                                 <div className="sign-up-container">
-                                    <Link to="/sign-up-page"><button className="sign-up-button">Create New Account</button></Link >
+                                    <Link to="/sign-up"><button className="sign-up-button">Create New Account</button></Link >
                                     </div>
                                 </form>
                         </div>
-                        <div className="page-div"></div>
+                        <div className="business-page-div"></div>
                     </div>
                 </div>
             </div>
