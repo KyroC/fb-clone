@@ -1,9 +1,23 @@
-import * as React from 'react';
+import {React, useState} from 'react';
 import "./login.css";
 import Logo from "../fb-logo.svg";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import  axios from "axios";
 
 function Login() {
+    const [ user, setUser ] = useState("");
+    const [ password, setPassword ] = useState("");
+
+    const onSubmit = () => {
+        const loginDetails = {
+            "username": user,
+            "password": password,
+        };
+        console.log(loginDetails)
+        axios.post("http://localhost:5000/login", loginDetails, {withCredentials: true})
+            .then(res => console.log(res));
+    }
+
     return (
         <div className="container">
             <div className="interface">
@@ -16,10 +30,12 @@ function Login() {
                         <div className="log-in-form">
                             <form className="form-template">
                                 <div className="inputs">
-                                    <input type="text" name="username" value="" autocomplete="" placeholder="Email Address" /> <br />
-                                    <input type="text" name="password" value="" autocomplete="" placeholder="Password" />
+                                    <input type="text" name="username" placeholder="Email Address" onChange={e => setUser(e.target.value)} /> <br />
+                                    <input type="text" name="password" placeholder="Password" onChange = {e => setPassword(e.target.value)}/>
                                 </div>
-                                <div className="log-in-button-container"><button value="1" className="log-in-button" type="submit"> Log In </button> </div>
+                                <Link to="/">
+                                <div className="log-in-button-container"><button type="button" className="log-in-button" onClick={onSubmit}> Log In </button> </div>
+                                </Link>
                                 <div>----------------------------------------------</div>
                                 <div className="sign-up-container">
                                     <Link to="/sign-up"><button className="sign-up-button">Create New Account</button></Link >

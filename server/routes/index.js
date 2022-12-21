@@ -5,6 +5,9 @@ const userController = require("../controllers/userController.js");
 const postController = require("../controllers/postController.js");
 const commentController = require("../controllers/commentController.js");
 
+
+//index
+
 //user routes
 
 router.get("/user/create", userController.user_create_get);

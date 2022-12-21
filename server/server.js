@@ -3,6 +3,15 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const router = require('express').Router();
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require("./models/userModel");
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
 
 const indexRouter = require("./routes/index.js");
 
@@ -11,10 +20,52 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
+passport.use(
+    new LocalStrategy((username, password, done) => {
+      User.findOne({ email: username }, (err, user) => {
+        if (err) { 
+          return done(err);
+        }
+        if (!user) {
+          return done(null, false, { message: "Incorrect username" });
+        }
+        if (user.password !== password) {
+          return done(null, false, { message: "Incorrect password" });
+        }
+        return done(null, user);
+      });
+    })
+);
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+});
+
+app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+
+app.get("/", (req, res) => {
+    res.json({user: req.user});
+  });
+
 app.use('/', indexRouter);
+
+app.post(
+    "/login",
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/"
+    })
+  );
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri);
