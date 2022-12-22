@@ -1,10 +1,11 @@
 import {React, useState} from 'react';
 import "./login.css";
 import Logo from "../fb-logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import  axios from "axios";
 
 function Login() {
+    const navigate = useNavigate()
     const [ user, setUser ] = useState("");
     const [ password, setPassword ] = useState("");
 
@@ -13,9 +14,9 @@ function Login() {
             "username": user,
             "password": password,
         };
-        console.log(loginDetails)
         axios.post("http://localhost:5000/login", loginDetails, {withCredentials: true})
-            .then(res => console.log(res));
+            .then(res => console.log(res))
+            .then(setTimeout(() =>{navigate("/")},500));
     }
 
     return (
@@ -33,9 +34,9 @@ function Login() {
                                     <input type="text" name="username" placeholder="Email Address" onChange={e => setUser(e.target.value)} /> <br />
                                     <input type="text" name="password" placeholder="Password" onChange = {e => setPassword(e.target.value)}/>
                                 </div>
-                                <Link to="/">
+                                
                                 <div className="log-in-button-container"><button type="button" className="log-in-button" onClick={onSubmit}> Log In </button> </div>
-                                </Link>
+
                                 <div>----------------------------------------------</div>
                                 <div className="sign-up-container">
                                     <Link to="/sign-up"><button className="sign-up-button">Create New Account</button></Link >

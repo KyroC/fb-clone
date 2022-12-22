@@ -67,6 +67,15 @@ app.post(
     })
   );
 
+app.get("/log-out", (req, res, next) => {
+req.logout(function (err) {
+    if (err) {
+    return next(err);
+    }
+    res.redirect("/");
+});
+});
+
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri);
 
