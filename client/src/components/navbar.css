@@ -4,7 +4,12 @@
     border-bottom: 1px solid;
     font-size: 12px;
     position: fixed;
-    z-index: -1;
+    display: flex;
+    flex-direction: row;
+}
+.left_nav{
+    display: flex;
+    flex-direction: row;
 }
 .logo {
     margin-left: 8px;
@@ -15,4 +20,41 @@
     padding-top: 4px;
     height: 48px;
     width: 48px;
+}
+.search {
+    margin-left:16px;
+}
+.search img {
+    height: 30px;
+    width: 30px;
+    padding-top: 13px;
+}
+.home img {
+    height: 30px;
+    width: 30px;
+    padding-top: 13px;
+}   
+.middle_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: calc(100% - 198px);
+}
+.likes {
+    margin-left: 13px;
+}
+.likes img {
+    height: 30px;
+    width: 30px;
+    padding-top: 13px;
+}
+.right_nav {
+    width: 94px;
+    display: flex;
+    justify-content: right;
+}
+.profile img {
+    height: 30px;
+    width: 30px;
+    padding-top: 13px;
 }
