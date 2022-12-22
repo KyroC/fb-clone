@@ -20,3 +20,4 @@ Front end done up using React, data sent to mongoDB using Axios posts requests.
 
 ### Features 
 - Authentication - use session
+- Guest log in

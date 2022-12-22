@@ -1,6 +1,6 @@
 import {React, useState} from 'react';
 import "./login.css";
-import Logo from "../fb-logo.svg";
+import Logo from "../fb-word-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import  axios from "axios";
 
@@ -15,6 +15,15 @@ function Login() {
             "password": password,
         };
         axios.post("http://localhost:5000/login", loginDetails, {withCredentials: true})
+            .then(res => console.log(res))
+            .then(setTimeout(() =>{navigate("/")},500));
+    }
+    const onGuest = () => {
+        const guestDetails = {
+            "username": "123@mail.com",
+            "password": "123",
+        };
+        axios.post("http://localhost:5000/login", guestDetails, {withCredentials: true})
             .then(res => console.log(res))
             .then(setTimeout(() =>{navigate("/")},500));
     }
@@ -36,6 +45,7 @@ function Login() {
                                 </div>
                                 
                                 <div className="log-in-button-container"><button type="button" className="log-in-button" onClick={onSubmit}> Log In </button> </div>
+                                <div className="log-in-button-container"><button type="button" className="log-in-button" onClick={onGuest}> Guest Log In </button> </div>
 
                                 <div>----------------------------------------------</div>
                                 <div className="sign-up-container">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate, Navigate} from "react-router-dom"
+import {useNavigate, Navigate} from "react-router-dom";
+import Navbar from './navbar.js';
 
 export default function Home(){
 
@@ -35,8 +36,8 @@ export default function Home(){
     } else {
         return(
             <div>
-                Logged in
-                <button type="button" onClick={userLogout}>Log out</button>
+                < Navbar />
+                <button type="button" style={{marginTop:"60px"}} onClick={userLogout}>Log out</button>
             </div>
         )
     }
