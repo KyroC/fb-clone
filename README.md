@@ -23,3 +23,4 @@ Front end done up using React, data sent to mongoDB using Axios posts requests.
 - Authentication - use session
 - Guest log in
 - Create posts linking current user id as author
+- Displays posts based on database post object

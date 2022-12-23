@@ -6,7 +6,7 @@ exports.post_create_post = (req, res) => {
     author: req.body.author,
     comments:  req.body.comments,
     likes: req.body.likes,
-    date: req.body.date
+    date: new Date()
     })
     post.save()
     .then(()=> res.json('Post Added'))
@@ -14,7 +14,9 @@ exports.post_create_post = (req, res) => {
 }
 
 exports.post_detail = (req, res, next) => {
-   Post.find({}, function(err, posts){
+   Post.find({})
+   .populate('author')
+   .exec(function(err, posts){
         if (err) {
             res.status(400).send("Error fetching listings!");
         } else {
