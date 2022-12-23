@@ -22,6 +22,8 @@ module.exports = router;
 
 router.post("/post/create", postController.post_create_post);
 
+router.get("/post/detail", postController.post_detail);
+
 //conmment routes
 
 router.post("/comment/create", commentController.comment_create_post);

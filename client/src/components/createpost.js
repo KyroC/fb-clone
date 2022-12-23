@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
+import './createpost.css';
 
 export default function CreatePost() {
     const [content, setContent] = useState("");
@@ -32,7 +33,6 @@ export default function CreatePost() {
     return (
         <div className="create-post">
             <div className="create-post-form">
-                <h2> Create Post</h2>
                 <form>
                     <label for="post">
                         <input type="text" name="create-post" placeholder="What are you thinking of today?" onChange={e=> setContent(e.target.value)}/>

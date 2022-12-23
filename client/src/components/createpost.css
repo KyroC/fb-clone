@@ -1,0 +1,9 @@
+.create-post {
+    width: 50vw;
+    border-radius: 6px;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+.create-post-form {
+    text-align: center;;
+}

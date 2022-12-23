@@ -1,5 +1,7 @@
 .message-feed {
     padding-top: 60px;
-    display:flex;
-    justify-content: center;
+    display:grid;
+    grid-template-columns: repeat(1,1fr );
+    justify-items: center;
+    grid-gap:20px;
 }
