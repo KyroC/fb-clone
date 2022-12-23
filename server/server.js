@@ -53,6 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
+
 app.get("/", (req, res) => {
     res.json({user: req.user});
   });

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {useNavigate, Navigate} from "react-router-dom";
 import Navbar from './navbar.js';
+import MessageFeed from "./messagefeed"
 
 export default function Home(){
 
@@ -37,6 +38,7 @@ export default function Home(){
         return(
             <div>
                 < Navbar />
+                < MessageFeed />
                 <button type="button" style={{marginTop:"60px"}} onClick={userLogout}>Log out</button>
             </div>
         )

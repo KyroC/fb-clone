@@ -1,11 +1,16 @@
+body {
+    background-color: #f0f2f5;
+}
 .navbar {
+    background-color: #fff;
     width: 100vw;
     height: 56px;
-    border-bottom: 1px solid;
     font-size: 12px;
     position: fixed;
     display: flex;
     flex-direction: row;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    z-index: 1;
 }
 .left_nav{
     display: flex;

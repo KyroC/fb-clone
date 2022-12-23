@@ -14,6 +14,7 @@ Front end done up using React, data sent to mongoDB using Axios posts requests.
 - HTTP Post "Comment, Post, User"
 
 ### To-do
+- Bcrypt hashing for password (Important)
 - Validation for sign up form (Both front end and back end)
 - Home page log-in check to redirect
 - update authentication to have a smoother experience
@@ -21,3 +22,4 @@ Front end done up using React, data sent to mongoDB using Axios posts requests.
 ### Features 
 - Authentication - use session
 - Guest log in
+- Create posts linking current user id as author
