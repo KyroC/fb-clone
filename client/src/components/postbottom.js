@@ -4,11 +4,13 @@ import './postbottom.css';
 import icon_comment from '../comment_icon.svg';
 import thumb_icon from '../thumb_icon.svg';
 
-export default function PostBottom({postId}) {
-
+export default function PostBottom({postDetails, getContentParent}) {
     const [open,setOpen] = useState(false);
     const [comment, setComment] = useState("");
     const [author, setAuthor] = useState("");
+    const [getComments, setGetComments] = useState([]);
+    
+
 
     const userId = () => {
         axios.get("/", {withCredentials: true})
@@ -18,22 +20,27 @@ export default function PostBottom({postId}) {
         )
     };
 
+    
     const userComment = () => {
-        const id = {postId}.postId
-        console.log("post")
+        const id = {postDetails}.postDetails._id
         const commentDetails= {
             content: comment,
             author: author,
             post: id
         }
         axios.post("http://localhost:5000/comment/create", commentDetails)
-            .then(res =>(console.log(res.data)))
+            .then(res =>(console.log(res.data)));
+        getContentParent();
+        setGetComments({postDetails}.postDetails.comments)
     }
     useEffect(() => {
         userId();
     },[])
 
-    const toggle = () => {setOpen(!open)}
+    const toggle = () => {
+        setOpen(!open)
+        setGetComments({postDetails}.postDetails.comments)
+    }
     return (
         <div className="post-bottom-container">
             <div className="button-container">
@@ -53,6 +60,21 @@ export default function PostBottom({postId}) {
             </div>
             {open?
             <div className="comment-container">
+                {getComments.slice(0).reverse().map(element => {
+                        return (
+                            <div className="comment-feed-container">
+                                <div className="comment">
+                                    <p> 
+                                        Author: {element.author}
+                                    </p>
+                                    <p>
+                                        Comment: {element.content}
+                                    </p>
+                                </div>
+
+                        </div>
+                    )
+                    })}
                 <div> 
                     <input className="comment-input" onChange={e=>setComment(e.target.value)}></input> 
                     <button type="button" className="comment-submit-button" onClick ={userComment}>Comment</button>

@@ -15,7 +15,7 @@ exports.post_create_post = (req, res) => {
 
 exports.post_detail = (req, res, next) => {
    Post.find({})
-   .populate('author')
+   .populate('author comments')
    .exec(function(err, posts){
         if (err) {
             res.status(400).send("Error fetching listings!");

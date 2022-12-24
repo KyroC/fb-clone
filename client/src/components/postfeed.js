@@ -33,7 +33,7 @@ export default function PostFeed() {
                             
                         </div>
                         <div className="post-bottom">
-                            <PostBottom postId={element._id}/>
+                            <PostBottom postDetails = {element} getContentParent = {getContent}/>
                         </div>
                     </div>
                 )
