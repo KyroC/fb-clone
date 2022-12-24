@@ -7,7 +7,11 @@ const postSchema = new Schema({
     author: { type: Schema.Types.ObjectId, ref:"User", required: true},
     comments:  [{type: Schema.Types.ObjectId, ref:"Comment"}],
     likes: [{type: Schema.Types.ObjectId, ref:"User"}],
-    date: { type: Date},
+    date: { type: Date },
+})
+
+postSchema.virtual('url').get(function(){
+    return '/post/' + this._id
 })
 
 module.exports = mongoose.model("Post", postSchema);

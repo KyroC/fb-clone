@@ -15,7 +15,7 @@ export default function CreatePost() {
         )
     };
     
-    const onSubmit =() => {
+    const onSubmit = () => {
         const postDetails = {
             'content':content,
             'author': author,

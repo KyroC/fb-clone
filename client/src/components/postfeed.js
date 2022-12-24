@@ -30,9 +30,10 @@ export default function PostFeed() {
                             <p>
                                 {element.comment}
                             </p>
+                            
                         </div>
                         <div className="post-bottom">
-                            <PostBottom />
+                            <PostBottom postId={element._id}/>
                         </div>
                     </div>
                 )
