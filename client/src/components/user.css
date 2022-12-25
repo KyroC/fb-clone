@@ -16,3 +16,13 @@
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     text-align:center;
 }
+.user-details {
+    width:auto;
+}
+.link-styles {
+    color:black;
+    text-decoration: none;
+}
+.link-styles :hover {
+    text-decoration: underline;
+}
