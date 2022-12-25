@@ -21,7 +21,7 @@ function Login() {
     }
     const onGuest = () => {
         const guestDetails = {
-            "username": "123@mail.com",
+            "username": "123456@mail.com",
             "password": "123",
         };
         axios.post("http://localhost:5000/login", guestDetails, {withCredentials: true})

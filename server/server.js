@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 const session = require('express-session');
 const passport = require('passport');
+const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require("./models/userModel");
 const corsOptions ={
@@ -32,9 +33,15 @@ passport.use(
         if (!user) {
           return done(null, false, { message: "Incorrect username" });
         }
-        if (user.password !== password) {
-          return done(null, false, { message: "Incorrect password" });
-        }
+        if (bcrypt.compare(password, user.password, (err, res) => {
+          if (res) {
+            // passwords match! log user in
+            return done(null, user)
+          } else {
+            // passwords do not match!
+            return done(null, false, { message: "Incorrect password" })
+          }
+        })) 
         return done(null, user);
       });
     })
