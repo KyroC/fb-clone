@@ -14,6 +14,8 @@ router.get("/user/create", userController.user_create_get);
 
 router.post("/user/create", userController.user_create_post);
 
+router.get("/user", userController.user_list);
+
 router.get("/user/:id", userController.user_detail);
 
 module.exports = router;

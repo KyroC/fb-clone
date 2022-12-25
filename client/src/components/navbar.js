@@ -37,8 +37,8 @@ export default function Navbar() {
                 <Link to="/">
                     <div className="home"><img src={Home} /></div>
                 </Link>
-                <Link to="/friend">
-                <div className="friend"><img src={Friend} /></div>
+                <Link to="/user">
+                <div className="user"><img src={Friend} /></div>
                 </Link>
             </div>
             <div className="right_nav">

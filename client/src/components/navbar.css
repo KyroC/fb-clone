@@ -48,10 +48,7 @@ body {
     justify-content: center;
     width: calc(100% - 198px);
 }
-.friend {
-
-}
-.friend img {
+.user img {
     height: 30px;
     width: 30px;
     padding-top: 13px;

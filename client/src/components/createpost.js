@@ -15,7 +15,7 @@ export default function CreatePost() {
         )
     };
     
-    const onSubmit = () => {
+    const onSubmit =() => {
         const postDetails = {
             'content':content,
             'author': author,
@@ -33,6 +33,7 @@ export default function CreatePost() {
     return (
         <div className="create-post">
             <div className="create-post-form">
+                <h2> Create Post</h2>
                 <form>
                     <label for="post">
                         <input type="text" name="create-post" placeholder="What are you thinking of today?" onChange={e=> setContent(e.target.value)}/>

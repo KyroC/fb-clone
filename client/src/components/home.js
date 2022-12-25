@@ -37,8 +37,8 @@ export default function Home(){
     } else {
         return(
             <div>
-                < Navbar />
-                < MessageFeed />
+                <Navbar />
+                <MessageFeed />
                 <button type="button" style={{marginTop:"60px"}} onClick={userLogout}>Log out</button>
             </div>
         )

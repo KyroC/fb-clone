@@ -35,3 +35,14 @@ exports.user_create_post = (req, res) => {
 exports.user_detail = (req, res) => {
     res.send(`NOT IMPLEMENTED: User Detail`)
 }
+
+exports.user_list = (req,res) => {
+    User.find({})
+   .exec(function(err, users){
+        if (err) {
+            res.status(400).send("Error fetching listings!");
+        } else {
+            res.json(users);
+        }
+    });
+}
