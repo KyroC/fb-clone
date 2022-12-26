@@ -3,7 +3,6 @@ import "./login.css";
 import Logo from "../fb-word-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAlert } from 'react-alert'
 
 
 function Login() {

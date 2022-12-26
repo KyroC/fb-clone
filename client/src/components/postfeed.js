@@ -46,7 +46,7 @@ export default function PostFeed() {
                             <p>
                                 {element.comment}
                             </p>
-                            {(element.author._id == currentUser._id) ?
+                            {(element.author._id === currentUser._id) ?
                             <div>
                                 <button type="button" onClick={() => deletePost(element._id)}>Delete</button>
                             </div> : null}
