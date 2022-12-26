@@ -54,14 +54,14 @@ export default function PostBottom({postDetails, getContentParent}) {
             <div className="button-container">
                 <div className="like-button">
                     <div className="like-icon">
-                        <img src={thumb_icon}></img>
-                        <a> like</a>
+                        <img src={thumb_icon} alt="like-icon"></img>
+                        <p> like</p>
                     </div>
                 </div>
                 <div className="comment-button" onClick={toggle}>
                     <div className="comment-icon">
-                        <img src={icon_comment}></img>
-                        <a>Comment</a>
+                        <img src={icon_comment} alt="comment-icon"></img>
+                        <p>Comment</p>
                     </div>
                 </div>
             </div>

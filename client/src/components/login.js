@@ -36,7 +36,7 @@ function Login() {
             <div className="interface">
                 <div className="inner-interface">
                     <div className="left-text">
-                        <div className="top-logo"><img src={Logo} /></div>
+                        <div className="top-logo"><img src={Logo} alt="logo-icon" /></div>
                         <h2 className="motto-text">Facebook helps you connect and share with the people in your life.</h2>
                     </div>
                     <div className="log-in-container">

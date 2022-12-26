@@ -27,28 +27,28 @@ export default function Navbar() {
         <div className="navbar">
             <div className="left_nav">
                 <Link to="/">
-                <div className="logo"><img src={Logo} /></div>
+                <div className="logo"><img src={Logo} alt="logo-icon" /></div>
                 </Link>
-                <div className="search"><img src={Search} />
+                <div className="search"><img src={Search} alt="search-icon" />
 
                 </div>
             </div>
             <div className="middle_nav">
                 <Link to="/">
-                    <div className="home"><img src={Home} /></div>
+                    <div className="home"><img src={Home} alt='home-icon' /></div>
                 </Link>
                 <Link to="/user">
-                <div className="user"><img src={Friend} /></div>
+                <div className="user"><img src={Friend} alt='friend-icon' /></div>
                 </Link>
             </div>
             <div className="right_nav">
                 <div className="chat"></div>
                 <div className="dropdown">
-                    <img src={Profile} class="profile" />
+                    <img src={Profile} class="profile" alt='profile-icon' />
                     <div class="dropdown-content">
-                        <a>Profile</a>
-                        <a>Setting</a>
-                        <a onClick={userLogout}>Log Out</a>
+                        <p>Profile</p>
+                        <p>Setting</p>
+                        <p onClick={userLogout}>Log Out</p>
                     </div>    
                 </div>
             </div>
