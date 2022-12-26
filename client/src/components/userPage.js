@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import './user.css';
 
 export default function UserPage() {
+    const [getUsers, setGetUsers] = useState({})
     const getContent = () => {
         axios.get('http://localhost:5000/user', {withCredentials: true})
             .then((res) => {
