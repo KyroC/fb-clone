@@ -14,15 +14,11 @@ export default function Home(){
         axios.get("/", {withCredentials: true})
             .then((res) => {
                 setCurrentUser(res.data.user)
-                console.log(res.data.user)
             }
         )
     };
     const userLogout = () => {
         axios.get("/log-out", {withCredentials: true})
-            .then((res) => {
-                console.log(res)
-            })
             .then(navigate('/login')
         )
     };

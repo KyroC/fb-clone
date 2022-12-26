@@ -3,12 +3,14 @@ import "./login.css";
 import Logo from "../fb-word-logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAlert } from 'react-alert'
 
 
 function Login() {
     const navigate = useNavigate()
     const [ user, setUser ] = useState("");
     const [ password, setPassword ] = useState("");
+    const [ loginSuccess, setLoginSuccess ] = useState(true)
 
     const onSubmit = () => {
         const loginDetails = {
@@ -17,6 +19,7 @@ function Login() {
         };
         axios.post("http://localhost:5000/login", loginDetails, {withCredentials: true})
             .then(res => console.log(res))
+            .then(setLoginSuccess(false))
             .then(setTimeout(() =>{navigate("/")},500));
     }
     const onGuest = () => {
@@ -44,7 +47,12 @@ function Login() {
                                     <input type="text" name="username" placeholder="Email Address" onChange={e => setUser(e.target.value)} /> <br />
                                     <input type="text" name="password" placeholder="Password" onChange = {e => setPassword(e.target.value)}/>
                                 </div>
-                                
+                                {loginSuccess ?
+                                null : 
+                                <div className="fail-prompt">
+                                    Log in failed
+                                </div> 
+                                }
                                 <div className="log-in-button-container"><button type="button" className="log-in-button" onClick={onSubmit}> Log In </button> </div>
                                 <div className="log-in-button-container"><button type="button" className="log-in-button" onClick={onGuest}> Guest Log In </button> </div>
 

@@ -5,12 +5,12 @@ import './createpost.css';
 export default function CreatePost() {
     const [content, setContent] = useState("");
     const [author, setAuthor] = useState("")
+    const [postSuccess, setPostSuccess] = useState(false)
 
     const userId = () => {
         axios.get("/", {withCredentials: true})
             .then((res) => {
                 setAuthor(res.data.user._id)
-                console.log(res.data.user._id)
             }
         )
     };
@@ -24,7 +24,7 @@ export default function CreatePost() {
         console.log(postDetails)
 
         axios.post('http://localhost:5000/post/create',postDetails)
-            .then(res => console.log(res.data))
+            setPostSuccess(true)
     }
     useEffect(() => {
         userId();
@@ -38,6 +38,8 @@ export default function CreatePost() {
                     <label for="post">
                         <input type="text" name="create-post" placeholder="What are you thinking of today?" onChange={e=> setContent(e.target.value)}/>
                     </label>
+                    {postSuccess ?
+                    <div>Post Success</div> : null}
                     <div className="submit-button-container">
                         <button type="button" className="submit-button" onClick={onSubmit} > Create Post</button>
                     </div>

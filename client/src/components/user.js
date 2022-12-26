@@ -10,7 +10,6 @@ export default function UserList() {
         axios.get('http://localhost:5000/user', {withCredentials: true})
             .then((res) => {
                 setGetUsers(res.data)
-                console.log(res.data)
             })
     }
     useEffect(() => {
@@ -27,7 +26,6 @@ export default function UserList() {
                     <div className="user-list-grid">
                         <div className="user-list">
                             <div className="user-details">
-                                
                                 <Link to = {"/user/" + element._id} className ="link-styles">
                                     <h2>{element.first_name} {element.last_name}</h2>  
                                 </Link>

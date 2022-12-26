@@ -118,3 +118,9 @@ form {
 .sign-up-button:hover {
     background-color: #36a420;
 }
+.alert {
+    display:none;
+}
+.fail-prompt {
+    
+}

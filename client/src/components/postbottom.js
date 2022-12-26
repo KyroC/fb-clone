@@ -9,6 +9,7 @@ export default function PostBottom({postDetails, getContentParent}) {
     const [comment, setComment] = useState("");
     const [author, setAuthor] = useState("");
     const [getComments, setGetComments] = useState([]);
+    const [commentSuccess, setCommentSuccess] = useState(false);
     
 
 
@@ -20,6 +21,13 @@ export default function PostBottom({postDetails, getContentParent}) {
         )
     };
 
+    const postComments = () => {
+        setCommentSuccess(true);
+        getContentParent();
+        setGetComments({postDetails}.postDetails.comments)
+        console.log(getComments);
+    }  
+
     
     const userComment = () => {
         const id = {postDetails}.postDetails._id
@@ -30,8 +38,8 @@ export default function PostBottom({postDetails, getContentParent}) {
         }
         axios.post("http://localhost:5000/comment/create", commentDetails)
             .then(res =>(console.log(res.data)));
-        getContentParent();
-        setGetComments({postDetails}.postDetails.comments)
+            setGetComments({postDetails}.postDetails.comments)
+            postComments();
     }
     useEffect(() => {
         userId();
@@ -56,7 +64,6 @@ export default function PostBottom({postDetails, getContentParent}) {
                         <a>Comment</a>
                     </div>
                 </div>
-                <div className="share-button">Share</div>   
             </div>
             {open?
             <div className="comment-container">
@@ -76,6 +83,8 @@ export default function PostBottom({postDetails, getContentParent}) {
                     )
                     })}
                 <div> 
+                    {commentSuccess ? 
+                    <div> Comment posted! </div> : null}
                     <input className="comment-input" onChange={e=>setComment(e.target.value)}></input> 
                     <button type="button" className="comment-submit-button" onClick ={userComment}>Comment</button>
                 </div>
