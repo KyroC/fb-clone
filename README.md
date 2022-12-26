@@ -15,15 +15,17 @@ Front end done up using React, data sent to mongoDB using Axios posts requests.
 
 ### To-do
 - Bcrypt hashing for password (Done)
+- Basic CSS for comments (done)
 - Validation for sign up form (Both front end and back end)
 - Home page log-in check to redirect (done)
 - update authentication to have a smoother experience
-- Basic CSS for comments (done)
 - Add log out button under profile
 - Add user pages
 - Add profile edit page
 - Add friend request 
 - Add user search
+- ensure page refreshes on post requests
+- prompts after actions (i.e login failed, post created)
 
 
 ### Features 

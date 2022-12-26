@@ -24,3 +24,11 @@ exports.post_detail = (req, res, next) => {
         }
     });
 }
+exports.post_delete = (req,res) => {
+    const postId = req.params.id;
+    Post.find({"_id":postId})
+        .deleteOne()
+        .exec()
+        .then(()=> res.json('Post deleted'))
+        .catch(err => res.status(400).json('Error' + err));
+}
