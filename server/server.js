@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require("./models/userModel");
 const corsOptions ={
-    origin:'https://top-static.onrender.com/', 
+    origin:'https://top-static.onrender.com', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
