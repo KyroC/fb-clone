@@ -18,7 +18,7 @@ export default function Home(){
         )
     };
     const userLogout = () => {
-        axios.get("/log-out", {withCredentials: true})
+        axios.get("https://top-fb.onrender.com/log-out", {withCredentials: true})
             .then(navigate('/login')
         )
     };
@@ -28,7 +28,7 @@ export default function Home(){
     },[]);
     if (!currentUser) {
         return(
-            <Navigate to="/login" replace={true} />
+            <Navigate to="https://top-fb.onrender.com/login" replace={true} />
             )
     } else {
         return(

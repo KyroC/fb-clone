@@ -21,7 +21,7 @@ const Signup = () => {
         }
         console.log(accountDetails)
 
-        axios.post('/user/create', accountDetails)
+        axios.post('https://top-fb.onrender.com/user/create', accountDetails)
             .then(res => console.log(res.data));
     }
 

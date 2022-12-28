@@ -7,7 +7,7 @@ import './user.css';
 export default function UserList() {
     const [getUsers, setGetUsers] = useState({})
     const getContent = () => {
-        axios.get('/user', {withCredentials: true})
+        axios.get('https://top-fb.onrender.com/user', {withCredentials: true})
             .then((res) => {
                 setGetUsers(res.data)
             })

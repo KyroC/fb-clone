@@ -14,7 +14,7 @@ export default function Navbar() {
     const navigate = useNavigate()
 
     const userLogout = () => {
-        axios.get("/log-out", {withCredentials: true})
+        axios.get("https://top-fb.onrender.com/log-out", {withCredentials: true})
             .then((res) => {
                 console.log(res)
             })

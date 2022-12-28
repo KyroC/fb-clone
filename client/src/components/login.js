@@ -16,7 +16,7 @@ function Login() {
             "username": user,
             "password": password,
         };
-        axios.post("/login", loginDetails, {withCredentials: true})
+        axios.post("https://top-fb.onrender.com/login", loginDetails, {withCredentials: true})
             .then(res => console.log(res))
             .then(setLoginSuccess(false))
             .then(setTimeout(() =>{navigate("/")},500));
@@ -26,7 +26,7 @@ function Login() {
             "username": "123456@mail.com",
             "password": "123",
         };
-        axios.post("/login", guestDetails, {withCredentials: true})
+        axios.post("https://top-fb.onrender.com/login", guestDetails, {withCredentials: true})
             .then(res => console.log(res))
             .then(setTimeout(() =>{navigate("/")},500));
     }

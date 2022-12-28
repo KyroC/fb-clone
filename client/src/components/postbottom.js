@@ -14,7 +14,7 @@ export default function PostBottom({postDetails, getContentParent}) {
 
 
     const userId = () => {
-        axios.get("/", {withCredentials: true})
+        axios.get("https://top-fb.onrender.com/", {withCredentials: true})
             .then((res) => {
                 setAuthor(res.data.user._id)
             }

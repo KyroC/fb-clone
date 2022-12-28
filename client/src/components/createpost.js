@@ -8,7 +8,7 @@ export default function CreatePost() {
     const [postSuccess, setPostSuccess] = useState(false)
 
     const userId = () => {
-        axios.get("/", {withCredentials: true})
+        axios.get("https://top-fb.onrender.com/", {withCredentials: true})
             .then((res) => {
                 setAuthor(res.data.user._id)
             }

@@ -7,10 +7,10 @@ import PostBottom from "./postbottom";
 export default function PostFeed() {
     const [currentUser, setCurrentUser] = useState({})
     const deletePost = (e) => {
-        axios.delete('/post/' + e + '/delete', {withCredentials: true})
+        axios.delete('https://top-fb.onrender.com/post/' + e + '/delete', {withCredentials: true})
     }
     const userCheck = () => {
-        axios.get("/", {withCredentials: true})
+        axios.get("https://top-fb.onrender.com/", {withCredentials: true})
             .then((res) => {
                 setCurrentUser(res.data.user)
             }
@@ -18,7 +18,7 @@ export default function PostFeed() {
     };
     const [getPosts, setGetPosts] = useState({})
     const getContent = () => {
-        axios.get('/post/detail', {withCredentials: true})
+        axios.get('https://top-fb.onrender.com/post/detail', {withCredentials: true})
             .then((res) => {
                 setGetPosts(res.data)
             })
