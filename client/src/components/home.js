@@ -5,10 +5,28 @@ import Navbar from './navbar.js';
 import MessageFeed from "./messagefeed"
 
 export default function Home(){
+    const [currentUser, setCurrentUser] = useState({})
+    const userCheck = () => {
+        axios.get("https://top-fb.onrender.com/", {withCredentials: true})   
+            .then((res) => {
+                console.log(res)
+                if(res.data != null)
+                {
+                setCurrentUser(res.data.user._id)
+                console.log(currentUser)
+                } else {
+                    return
+                }
+                }
+            )
+            .catch(e => {
+                console.log(e);
+            })
+        };    
 
     const navigate = useNavigate()
 
-    const [currentUser, setCurrentUser] = useState({})
+
 
     const userLogout = () => {
         axios.get("https://top-fb.onrender.com/log-out", {withCredentials: true})
@@ -17,25 +35,8 @@ export default function Home(){
     };
     
     useEffect(() => {
-        const userCheck = () => {
-            axios.get("https://top-fb.onrender.com/", {withCredentials: true})   
-                .then((res) => {
-                    console.log(res)
-                    if(res.data.user._id != null)
-                    {
-                    setCurrentUser(res.data.user._id)
-                    console.log(currentUser)
-                    } else {
-                        return
-                    }
-                    }
-                )
-                .catch(e => {
-                    console.log(e);
-                })
-            };    
-            userCheck()
-    },[currentUser]);
+            userCheck();
+    },[]);
     if (!currentUser) {
         return(
             <Navigate to="/login" replace={true} />
