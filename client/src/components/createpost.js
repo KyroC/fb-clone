@@ -23,7 +23,7 @@ export default function CreatePost() {
         
         console.log(postDetails)
 
-        axios.post('http://localhost:5000/post/create',postDetails)
+        axios.post('/post/create',postDetails)
             setPostSuccess(true)
     }
     useEffect(() => {

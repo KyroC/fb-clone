@@ -36,7 +36,7 @@ export default function PostBottom({postDetails, getContentParent}) {
             author: author,
             post: id
         }
-        axios.post("http://localhost:5000/comment/create", commentDetails)
+        axios.post("/comment/create", commentDetails)
             .then(res =>(console.log(res.data)));
             setGetComments({postDetails}.postDetails.comments)
             postComments();

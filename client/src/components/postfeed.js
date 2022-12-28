@@ -7,7 +7,7 @@ import PostBottom from "./postbottom";
 export default function PostFeed() {
     const [currentUser, setCurrentUser] = useState({})
     const deletePost = (e) => {
-        axios.delete('http://localhost:5000/post/' + e + '/delete', {withCredentials: true})
+        axios.delete('/post/' + e + '/delete', {withCredentials: true})
     }
     const userCheck = () => {
         axios.get("/", {withCredentials: true})
@@ -18,7 +18,7 @@ export default function PostFeed() {
     };
     const [getPosts, setGetPosts] = useState({})
     const getContent = () => {
-        axios.get('http://localhost:5000/post/detail', {withCredentials: true})
+        axios.get('/post/detail', {withCredentials: true})
             .then((res) => {
                 setGetPosts(res.data)
             })

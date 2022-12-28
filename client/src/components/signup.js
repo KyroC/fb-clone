@@ -21,7 +21,7 @@ const Signup = () => {
         }
         console.log(accountDetails)
 
-        axios.post('http://localhost:5000/user/create', accountDetails)
+        axios.post('/user/create', accountDetails)
             .then(res => console.log(res.data));
     }
 
