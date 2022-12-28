@@ -30,7 +30,7 @@ export default function PostFeed() {
             .then((res) => {
                 if(res.data != null)
                 {
-                setsetGetPosts(res.data)
+                setGetPosts(res.data)
                 } else {
                     return
                 }
