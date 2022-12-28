@@ -40,3 +40,6 @@ Front end done up using React, data sent to mongoDB using Axios posts requests.
 - Account deletion/Edit
 - Post deletion/Edit
 - Comment Deletion/Edit
+
+#### Learning points
+- Create seperate deployment and production environment
