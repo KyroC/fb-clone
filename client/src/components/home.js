@@ -28,7 +28,7 @@ export default function Home(){
     },[]);
     if (!currentUser) {
         return(
-            <Navigate to="https://top-fb.onrender.com/login" replace={true} />
+            <Navigate to="/login" replace={true} />
             )
     } else {
         return(
