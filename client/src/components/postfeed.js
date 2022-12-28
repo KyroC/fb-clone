@@ -15,6 +15,9 @@ export default function PostFeed() {
                 setCurrentUser(res.data.user)
             }
         )
+        .catch(e => {
+            console.log(e);
+        })
     };
     const [getPosts, setGetPosts] = useState({})
     const getContent = () => {
