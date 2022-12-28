@@ -6,7 +6,7 @@ import Home from "./components/home.js";
 import UserList from "./components/user.js";
 import UserPage from "./components/userPage.js"
 import Axios from "axios";
-Axios.defaults.baseURL = "https://top-static.onrender.com/";
+Axios.defaults.baseURL = "https://top-fb.onrender.com/";
 
 function App() {
   return (
