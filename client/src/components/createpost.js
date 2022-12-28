@@ -9,13 +9,13 @@ export default function CreatePost() {
 
     const userId = () => {
         axios.get("https://top-fb.onrender.com/", {withCredentials: true})
-            .catch(e => {
-            console.log(e);
-            })
             .then((res) => {
                 setAuthor(res.data.user._id)
             }
         )
+        .catch(e => {
+            console.log(e);
+            })
     };
     
     const onSubmit =() => {

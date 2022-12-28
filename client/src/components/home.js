@@ -11,15 +11,15 @@ export default function Home(){
     const [currentUser, setCurrentUser] = useState({})
 
     const userCheck = () => {
-        axios.get("/", {withCredentials: true})
+        axios.get("/", {withCredentials: true})   
+            .then((res) => {
+                setCurrentUser(res.data.user)
+                }
+            )
             .catch(e => {
                 console.log(e);
             })
-            .then((res) => {
-                setCurrentUser(res.data.user)
-            }
-        )
-    };
+        };
     const userLogout = () => {
         axios.get("https://top-fb.onrender.com/log-out", {withCredentials: true})
             .then(navigate('/login')

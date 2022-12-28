@@ -16,13 +16,12 @@ export default function PostBottom({postDetails, getContentParent}) {
     const userId = () => {
         axios.get("https://top-fb.onrender.com/", {withCredentials: true})
             .then((res) => {
-                if (res.data.user._id != null) {
-                    setAuthor(res.data.user._id)
-                } else {
-                    return null
+                setAuthor(res.data.user._id)
                 }
-            }
-        )
+            )
+            .catch(e => {
+                console.log(e);
+            })
     };
 
     const postComments = () => {
