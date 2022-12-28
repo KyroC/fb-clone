@@ -8,6 +8,10 @@ const commentController = require("../controllers/commentController.js");
 
 //index
 
+app.get("/", (req, res) => {
+    res.json({user: req.user});
+  });
+
 //user routes
 
 router.get("/user/create", userController.user_create_get);
@@ -28,6 +32,16 @@ router.get("/post/detail", postController.post_detail);
 
 router.delete("/post/:id/delete", postController.post_delete);
 
-//conmment routes
+//comment routes
 
 router.post("/comment/create", commentController.comment_create_post);
+
+//login
+
+app.post(
+    "/login",
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/"
+    })
+  );

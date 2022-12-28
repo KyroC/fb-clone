@@ -61,19 +61,11 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get("/", (req, res) => {
-    res.json({user: req.user});
-  });
+
 
 app.use('/', indexRouter);
 
-app.post(
-    "/login",
-    passport.authenticate("local", {
-      successRedirect: "/",
-      failureRedirect: "/"
-    })
-  );
+
 
 app.get("/log-out", (req, res, next) => {
 req.logout(function (err) {
