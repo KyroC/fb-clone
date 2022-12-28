@@ -72,6 +72,7 @@ app.post(
   }),
   async (req, res) => {
     var idUser = req.user.id;
+    console.log(idUser);
   }
 );
 
