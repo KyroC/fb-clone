@@ -1,5 +1,8 @@
 var express = require("express");
 const router = express.Router();
+const passport = require('passport');
+const bcrypt = require('bcryptjs');
+const LocalStrategy = require('passport-local').Strategy;
 
 const userController = require("../controllers/userController.js");
 const postController = require("../controllers/postController.js");
@@ -7,8 +10,7 @@ const commentController = require("../controllers/commentController.js");
 
 
 //index
-
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.json({user: req.user});
   });
 
@@ -38,7 +40,7 @@ router.post("/comment/create", commentController.comment_create_post);
 
 //login
 
-app.post(
+router.post(
     "/login",
     passport.authenticate("local", {
       successRedirect: "/",
