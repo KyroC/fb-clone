@@ -66,7 +66,13 @@ app.get("/", (req, res) => {
   });
 app.post(
   "/login",
-  passport.authenticate("local")
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/"
+  }),
+  async (req, res) => {
+    var idUser = req.user.id;
+  }
 );
 
 app.use('/', indexRouter);
