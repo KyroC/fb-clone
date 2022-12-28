@@ -12,7 +12,12 @@ export default function PostFeed() {
     const userCheck = () => {
         axios.get("https://top-fb.onrender.com/", {withCredentials: true})
             .then((res) => {
-                setCurrentUser(res.data.user)
+                if(res.data.user._id != null)
+                {
+                setCurrentUser(res.data.user._id)
+                } else {
+                    return
+                }
             }
         )
         .catch(e => {
@@ -23,7 +28,12 @@ export default function PostFeed() {
     const getContent = () => {
         axios.get('https://top-fb.onrender.com/post/detail', {withCredentials: true})
             .then((res) => {
-                setGetPosts(res.data)
+                if(res.data.user._id != null)
+                {
+                setGetPosts(res.data.user._id)
+                } else {
+                    return
+                }
             })
             .catch(e => {
                 console.log(e);

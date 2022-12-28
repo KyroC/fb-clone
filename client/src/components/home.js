@@ -13,7 +13,12 @@ export default function Home(){
     const userCheck = () => {
         axios.get("/", {withCredentials: true})   
             .then((res) => {
-                setCurrentUser(res.data.user)
+                if(res.data.user._id != null)
+                {
+                setCurrentUser(res.data.user._id)
+                } else {
+                    return
+                }
                 }
             )
             .catch(e => {
