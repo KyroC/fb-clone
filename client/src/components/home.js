@@ -12,6 +12,9 @@ export default function Home(){
 
     const userCheck = () => {
         axios.get("/", {withCredentials: true})
+            .catch(e => {
+                console.log(e);
+            })
             .then((res) => {
                 setCurrentUser(res.data.user)
             }

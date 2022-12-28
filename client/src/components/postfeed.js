@@ -19,12 +19,11 @@ export default function PostFeed() {
     const [getPosts, setGetPosts] = useState({})
     const getContent = () => {
         axios.get('https://top-fb.onrender.com/post/detail', {withCredentials: true})
+            .catch(e => {
+                console.log(e);
+            })
             .then((res) => {
-                 if (res.data.user._id != null) {
-                    setGetPosts(res.data.user._id)
-                } else {
-                    return null
-                }
+                setGetPosts(res.data)
             })
     }
 

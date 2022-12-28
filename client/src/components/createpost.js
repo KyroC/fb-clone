@@ -9,12 +9,11 @@ export default function CreatePost() {
 
     const userId = () => {
         axios.get("https://top-fb.onrender.com/", {withCredentials: true})
+            .catch(e => {
+            console.log(e);
+            })
             .then((res) => {
-                if (res.data.user._id != null) {
-                    setAuthor(res.data.user._id)
-                } else {
-                    return null
-                }
+                setAuthor(res.data.user._id)
             }
         )
     };
