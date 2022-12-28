@@ -10,23 +10,6 @@ export default function Home(){
 
     const [currentUser, setCurrentUser] = useState({})
 
-    const userCheck = () => {
-        axios.get("/", {withCredentials: true})   
-            .then((res) => {
-                console.log(res)
-                if(res.data.user._id != null)
-                {
-                setCurrentUser(res.data.user._id)
-                console.log(currentUser)
-                } else {
-                    return
-                }
-                }
-            )
-            .catch(e => {
-                console.log(e);
-            })
-        };
     const userLogout = () => {
         axios.get("https://top-fb.onrender.com/log-out", {withCredentials: true})
             .then(navigate('/login')
@@ -34,8 +17,25 @@ export default function Home(){
     };
     
     useEffect(() => {
-        userCheck();    
-    },[]);
+        const userCheck = () => {
+            axios.get("/", {withCredentials: true})   
+                .then((res) => {
+                    console.log(res)
+                    if(res.data.user._id != null)
+                    {
+                    setCurrentUser(res.data.user._id)
+                    console.log(currentUser)
+                    } else {
+                        return
+                    }
+                    }
+                )
+                .catch(e => {
+                    console.log(e);
+                })
+            };    
+            userCheck()
+    },[currentUser]);
     if (!currentUser) {
         return(
             <Navigate to="/login" replace={true} />
