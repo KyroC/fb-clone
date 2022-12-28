@@ -20,7 +20,11 @@ export default function PostFeed() {
     const getContent = () => {
         axios.get('https://top-fb.onrender.com/post/detail', {withCredentials: true})
             .then((res) => {
-                setGetPosts(res.data)
+                if (res.data.user._id != null) {
+                    setAuthor(res.data.user._id)
+                } else {
+                    return null
+                }
             })
     }
 

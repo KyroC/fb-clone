@@ -10,7 +10,11 @@ export default function CreatePost() {
     const userId = () => {
         axios.get("https://top-fb.onrender.com/", {withCredentials: true})
             .then((res) => {
-                setAuthor(res.data.user._id)
+                if (res.data.user._id != null) {
+                    setAuthor(res.data.user._id)
+                } else {
+                    return null
+                }
             }
         )
     };
@@ -20,10 +24,8 @@ export default function CreatePost() {
             'content':content,
             'author': author,
         }
-        
-        console.log(postDetails)
 
-        axios.post('/post/create',postDetails)
+        axios.post('https://top-fb.onrender.com/post/create',postDetails)
             setPostSuccess(true)
     }
     useEffect(() => {
