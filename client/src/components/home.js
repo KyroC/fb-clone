@@ -18,7 +18,7 @@ export default function Home(){
     
     useEffect(() => {
         const userCheck = () => {
-            axios.get("/", {withCredentials: true})   
+            axios.get("https://top-fb.onrender.com//", {withCredentials: true})   
                 .then((res) => {
                     console.log(res)
                     if(res.data.user._id != null)
