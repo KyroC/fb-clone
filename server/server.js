@@ -66,10 +66,7 @@ app.get("/", (req, res) => {
   });
 app.post(
   "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/"
-  })
+  passport.authenticate("local")
 );
 
 app.use('/', indexRouter);
